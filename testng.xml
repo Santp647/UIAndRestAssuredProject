@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true"
+          name="/Users/testvagrant/Desktop/UI_AND_RESTASSURED_PROJECT/src/test/java/api/test/userTestCases.java">
+        <classes>
+            <class name="api.test.userTestCases">
+                <methods>
+                    <include name="testCreateUser"/>
+                    <include name="testReadUser"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

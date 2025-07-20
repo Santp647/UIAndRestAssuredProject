@@ -4,16 +4,18 @@ import api.payload.pojo;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
+import java.util.List;
+
 import static io.restassured.RestAssured.given;
 
 public class UsersEndpoints {
 
-    public static Response createUser(pojo payload) {
+    public static Response createUser(List<pojo> userList) {
         try {
             Response response = given()
                     .contentType(ContentType.JSON)
                     .accept(ContentType.JSON)
-                    .body(payload)
+                    .body(userList)
                     .when()
                     .post(route.post_url);
             return response;
@@ -25,7 +27,7 @@ public class UsersEndpoints {
     public static Response readUser(String userName) {
         try {
             Response response = given()
-                    .pathParam("UserName", userName)
+                    .pathParam("username", userName)
                     .when()
                     .get(route.get_url);
             return response;
@@ -39,7 +41,7 @@ public class UsersEndpoints {
             Response response = given()
                     .contentType(ContentType.JSON)
                     .accept(ContentType.JSON)
-                    .pathParam("UserName", userName)
+                    .pathParam("username", userName)
                     .body(payload)
                     .when()
                     .put(route.put_url);
@@ -55,7 +57,7 @@ public class UsersEndpoints {
 
         try {
             Response response = given()
-                    .pathParam("Username", userName)
+                    .pathParam("username", userName)
                     .when()
                     .delete(route.delete_url);
             return response;

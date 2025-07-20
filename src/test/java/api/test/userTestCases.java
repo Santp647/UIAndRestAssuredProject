@@ -8,54 +8,68 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import javax.swing.*;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class userTestCases {
 
     public static Faker faker;
-    public static pojo payload;
-
+    public static pojo UserPayload;
+    List<pojo> userList=new ArrayList<>();
     @BeforeTest
 
-    public void setupDATA() {
+    public void setUpData() {
         faker = new Faker();
-        payload = new pojo();
 
-        payload.setId(faker.idNumber().hashCode());
-        payload.setFirstName(faker.name().firstName());
-        payload.setUsername(faker.name().username());
-        payload.setLastName(faker.name().lastName());
-        payload.setPassword((faker.internet().password(5, 10)));
-        payload.setEmail(faker.internet().safeEmailAddress());
-        payload.setPhone(faker.phoneNumber().cellPhone());
+        for (int i=0;i<1;i++) {
+            UserPayload = new pojo();
 
+            UserPayload.setId(faker.idNumber().hashCode());
+            UserPayload.setFirstName(faker.name().firstName());
+            UserPayload.setUsername(faker.name().username());
+            UserPayload.setLastName(faker.name().lastName());
+            UserPayload.setPassword((faker.internet().password(5, 10)));
+            UserPayload.setEmail(faker.internet().safeEmailAddress());
+            UserPayload.setPhone(faker.phoneNumber().cellPhone());
+            UserPayload.setUserStatus(1);
+
+            userList.add(UserPayload);
+        }
     }
 
 
     @Test(priority=1)
-    public Void testCreateUser() {
-        Response response = UsersEndpoints.createUser(payload);
+    public void  testCreateUser() {
+        Response response = UsersEndpoints.createUser(userList);
         response.then().log().all();
-        Assert.assertEquals(response.getStatusCode(), 201);
-        return null;
+        Assert.assertEquals(response.getStatusCode(), 200);
     }
 
     @Test(priority=2)
-    public void testReadUser(){
+    public void testReadUser() {
 
-        Response response=UsersEndpoints.readUser(id);
+        Response response = UsersEndpoints.readUser(this.UserPayload.getUsername());
         response.then().log().all();
-        Assert.assertEquals(response.getStatusCode(),200);
+        Assert.assertEquals(response.getStatusCode(), 200);
     }
 
-@Test
+@Test(priority=3)
     public void testupadteUser(){
+    UserPayload.setFirstName(faker.name().firstName());
+    UserPayload.setLastName(faker.name().lastName());
+    UserPayload.setEmail(faker.internet().safeEmailAddress());
 
+        Response response= UsersEndpoints.updateUser(UserPayload, this.UserPayload.getUsername());
+        response.then().log().all();
 
-        Response response= UsersEndpoints.updateUser(payload, payload.getUsername());
-        response.then();
 }
 
+@Test(priority=4)
+        public void deleteUser(){
 
-
+            Response response =UsersEndpoints.deleteUser(this.UserPayload.getUsername());
+            response.then().log().all();
+    }
 }
+

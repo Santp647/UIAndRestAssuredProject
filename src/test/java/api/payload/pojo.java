@@ -9,7 +9,7 @@ public class pojo {
     String email;
     String password;
     String phone;
-    boolean userStatus;
+    int userStatus=0;
 
     public int getId() {
         return id;
@@ -67,11 +67,11 @@ public class pojo {
         this.phone = phone;
     }
 
-    public boolean isUserStatus() {
+    public int isUserStatus() {
         return userStatus;
     }
 
-    public void setUserStatus(boolean userStatus) {
+    public void setUserStatus(int userStatus) {
         this.userStatus = userStatus;
     }
 }
