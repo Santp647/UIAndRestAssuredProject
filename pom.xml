@@ -94,25 +94,7 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>4.32.0</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.seleniumhq.webdriver/webdriver-common -->
-        <dependency>
-            <groupId>org.seleniumhq.webdriver</groupId>
-            <artifactId>webdriver-common</artifactId>
-            <version>0.9.7376</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.seleniumhq.webdriver/webdriver-selenium -->
-        <dependency>
-            <groupId>org.seleniumhq.webdriver</groupId>
-            <artifactId>webdriver-selenium</artifactId>
-            <version>0.9.7376</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.seleniumhq.webdriver/webdriver-chrome -->
-        <dependency>
-            <groupId>org.seleniumhq.webdriver</groupId>
-            <artifactId>webdriver-chrome</artifactId>
-            <version>0.9.7376</version>
+            <version>4.34.0</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.maven/maven-artifact -->
         <dependency>
@@ -129,7 +111,7 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-api</artifactId>
-            <version>4.20.0</version>
+            <version>4.32.0</version>
             <scope>test</scope>
         </dependency>
 
