@@ -2,12 +2,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true"
-          name="/Users/testvagrant/Desktop/UI_AND_RESTASSURED_PROJECT/src/test/java/api/test/userTestCases.java">
+          name="/Users/testvagrant/Desktop/UI_AND_RESTASSURED_PROJECT/src/test/java/ui/testCases/E2ETestCases.java">
         <classes>
-            <class name="api.test.userTestCases">
+            <class name="ui.testCases.E2ETestCases">
                 <methods>
-                    <include name="testCreateUser"/>
-                    <include name="testReadUser"/>
+                    <include name="verifylogin"/>
                 </methods>
             </class>
         </classes>
