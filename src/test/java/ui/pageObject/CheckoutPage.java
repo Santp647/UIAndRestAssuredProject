@@ -1,5 +1,6 @@
 package ui.pageObject;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -19,6 +20,23 @@ public class CheckoutPage extends BasePage {
     WebElement continue1;
     @FindBy(xpath = "//button[@id=\"cancel\"]")
     WebElement cancel;
+
+    public void setFirstName(){
+        firstName.sendKeys(generateRandomString());
+    }
+    public void setLastName(){
+        lastName.sendKeys(generateRandomString());
+    }
+    public void setZipCode(){
+        zipCode.sendKeys(generateRandomString());
+    }
+    public void clickContinue(){
+        continue1.click();
+    }
+    public String generateRandomString(){
+        String randomString= RandomStringUtils.randomAlphabetic(5);
+        return randomString;
+    }
 
 
 }

@@ -12,4 +12,8 @@ public class YourCartPage extends BasePage {
 
     @FindBy(xpath="//button[@id=\"checkout\"]")
     WebElement checkOutBtn;
+
+    public void clickOnCheckOutBtn(){
+        checkOutBtn.click();
+    }
 }

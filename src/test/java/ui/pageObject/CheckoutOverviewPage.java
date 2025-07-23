@@ -13,5 +13,12 @@ public class CheckoutOverviewPage extends BasePage{
     WebElement finish;
     @FindBy(xpath = "//button[@id=\"cancel\"]")
     WebElement cancel;
+
+    public void clickFinishBtn(){
+        finish.click();
+    }
+    public void clickCancelBtn(){
+        cancel.click();
+    }
 }
 

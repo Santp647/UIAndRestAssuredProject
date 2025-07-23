@@ -56,6 +56,9 @@ public class ProductPage extends BasePage {
         return actualText;
 
     }
+    public void clickCartLink(){
+        cartLinkBtn.click();
+    }
 
 }
 
