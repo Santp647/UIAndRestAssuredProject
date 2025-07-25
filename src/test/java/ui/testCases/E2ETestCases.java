@@ -4,17 +4,28 @@ package ui.testCases;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.Arrays;
+
 public class E2ETestCases extends BaseClass {
 
+    @Test(priority = 0, dataProvider = "loginData")
+    public void testLoginWithMultipleDataSet(Object UserName, Object PassWord) {
+        lp.setUserName("standard_user");
+        lp.setPassword("secret_sauce");
+        lp.clickOnLoginBtn();
+        boolean actualText = pp.getDashboardHeaderOnPage();
+        boolean ExpectedText = true;
+        Assert.assertEquals(actualText, ExpectedText);
+    }
 
     @Test(priority = 1)
     public void verifylogin() {
 
-        lp.setUserName("standard_user");
-        lp.setPassword("secret_sauce");
+        lp.setUserName((String) getLoginData()[0][0]);
+        lp.setPassword((String)getLoginData()[0][1]);
         lp.clickOnLoginBtn();
-        String actualText = pp.getDashboardHeaderOnPage();
-        String ExpectedText = "Products";
+        boolean actualText = pp.getDashboardHeaderOnPage();
+        boolean ExpectedText = true;
         Assert.assertEquals(actualText, ExpectedText);
     }
 

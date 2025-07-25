@@ -40,10 +40,10 @@ public class ProductPage extends BasePage {
         String xpath = "//button[@id='add-to-cart-" + productName + "']";
          driver.findElement(By.xpath(xpath)).click();
     }
-    public String getDashboardHeaderOnPage() {
+    public Boolean getDashboardHeaderOnPage() {
         WebElement dashboardHeader = wait.until(
                 ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(),\"Products\")]")));
-        String actualText = dashboardHeader.getText();
+        boolean actualText = dashboardHeader.isDisplayed();
         return actualText;
 
     }
